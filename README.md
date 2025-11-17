@@ -108,4 +108,16 @@ When submitting on Google Classroom (GCR):
 ✔ Invalid/self-signed cert rejected (`BAD_CERT`)  
 ✔ Tamper test → signature verification fails (`SIG_FAIL`)  
 ✔ Replay test → rejected by seqno (`REPLAY`)  
-✔ Non-repudiation → exported transcript + signed SessionReceipt verified offline  
+✔ Non-repudiation → exported transcript + signed SessionReceipt verified offline 
+
+
+### PKI - generate CA and certs (local)
+
+# Run (Windows PowerShell):
+.venv\Scripts\Activate.ps1
+python scripts/gen_ca.py
+python scripts/gen_cert.py --name server --cn "localhost"
+python scripts/gen_cert.py --name client --cn "client.local"
+
+Generated certs are in certs/ (ignored by git).
+
